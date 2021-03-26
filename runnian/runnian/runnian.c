@@ -24,8 +24,8 @@ int Isleapyear(int year){
 
 int main()
 {
-	int year = 1000;
-	while (year <= 2000){
+	int year = 2000;
+	while (year <=3000){
 
 		if (Isleapyear(year) == 1){
 			printf("%d ", year);
