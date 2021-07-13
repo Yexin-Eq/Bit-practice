@@ -1,3 +1,4 @@
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
@@ -59,7 +60,7 @@ void Computermove(){
 	while (1){
 		row = rand() % ROW;//[0,2]
 		col = rand() % COL;//[0,2]
-		if (g_chessboard[row][col] = ' '){
+		if (g_chessboard[row][col] == ' '){
 			g_chessboard[row][col] = '0';
 			break;
 		}
@@ -88,6 +89,20 @@ char Checkwinner(){
 	if (g_chessboard[2][0] == g_chessboard[1][1] && g_chessboard[2][0] == g_chessboard[0][2] && g_chessboard[2][0] != ' '){
 		return g_chessboard[2][0];
 	}
+	//检查是否和棋
+	if (Isfull()==1){
+		return 'q';
+	}
+	return ' ';
+}
+int Isfull(){
+	for (int row = 0; row < ROW; row++){
+		for (int col = 0; col < COL; col++){
+			if (g_chessboard[row][col] == ' '){
+				return 0;
+			}
+		}
+	}return 1;
 }
 
 int main(){
@@ -124,6 +139,6 @@ int main(){
 	else if (winner == 'q'){
 		printf("平局\n");
 	}
-
+	system("pause");
 	return 0;
 }
